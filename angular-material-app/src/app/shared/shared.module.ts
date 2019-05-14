@@ -1,10 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { StateManagementService } from './services/state-management.service';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [ ],
   imports: [
-    BrowserModule
+    FormsModule, ReactiveFormsModule
   ],
+  exports: [  FormsModule, ReactiveFormsModule],
+  providers: [StateManagementService]
 })
 export class SharedModule { }

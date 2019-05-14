@@ -1,3 +1,28 @@
-<p>
-  login works!
-</p>
+<div class="centerFlex">
+  <mat-card class="example-card">
+    <mat-card-header class="centerFlex">
+      <div mat-card-avatar class="example-header-image"></div>
+      <h3>DevOpps</h3>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form" (ngSubmit)="onFormSubmit()" #loginForm="ngForm">
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="formData.userName" name="userName"
+          #userName="ngModel" required placeholder="User Name">
+          <mat-error *ngIf="userName.invalid">User Name is Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="formData.password" name="Password"
+          #Password="ngModel" required placeholder="Password">
+          <mat-error *ngIf="Password.invalid">Password is Required</mat-error>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-button color="accent" routerLink="/forgot-password">Forgot Password</a>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.form.valid">Login</button>
+      <a mat-button color="warn" routerLink="/singup">Singup</a>
+    </mat-card-actions>
+  </mat-card>
+</div>
