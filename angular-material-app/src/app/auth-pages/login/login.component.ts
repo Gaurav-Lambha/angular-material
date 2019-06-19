@@ -8,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formData: any = {};
+  formData: any = {
+    userName: 'devopps@gmail.com',
+    password: '1234'
+  };
   constructor(private $stateManagementService: StateManagementService, private $router: Router) { }
 
   ngOnInit() {
@@ -20,7 +23,7 @@ export class LoginComponent implements OnInit {
         alert('User not exist!!!');
       } else {
         this.$stateManagementService.setAuthSession(this.formData);
-        this.$router.navigate(['/dashboard']);
+        this.$router.navigateByUrl('/app');
       }
     }, err => {
       alert('Somthings went worng!!!');

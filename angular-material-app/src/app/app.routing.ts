@@ -7,25 +7,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
-        path: '',
-        component: AppComponent,
-        data: { title: 'Angular Material' },
-        children: [
-            {
-                path: '',
-                loadChildren: './auth-pages/auth.module#AuthModule',
-            },
-            {
-                path: 'app',
-                loadChildren: './core-pages/core.module#CoreModule',
-                //  canActivate: [AuthGuardService],
-                data: { title: 'Dashboard' }
-            },
-            {
-                path: '**',
-                redirectTo: ''
-            }
-        ]
+        path: 'auth',
+        loadChildren: './auth-pages/auth.module#AuthModule',
+    },
+    {
+        path: 'app',
+        loadChildren: './core-pages/core.module#CoreModule',
+    },
+    {
+        path: '**',
+        redirectTo: 'app'
     }
 ];
 

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CoreComponent } from './core.component';
+import { FormControlsComponent } from './form-controls/form-controls.component';
 
 const routes: Routes = [
     {
@@ -11,11 +12,13 @@ const routes: Routes = [
         data: { title: 'Service Manager' },
         children: [
             {
-             path : '', redirectTo: 'dashboard'
+                path: '',
+                component: DashboardComponent,
+                data: { title: 'dashboard' }
             },
             {
-                path: 'dashboard',
-                component: DashboardComponent,
+                path: 'form-control',
+                component: FormControlsComponent,
                 data: { title: 'dashboard' }
             },
             {
